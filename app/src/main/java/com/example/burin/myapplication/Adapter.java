@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.Viewholder> {
 
+    //Hello
+
     Context context;
     ArrayList<String> data = new ArrayList<>();
 
