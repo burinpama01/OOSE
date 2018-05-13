@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "91365124549",
-    "firebase_url": "https://oose-f8ab1.firebaseio.com",
-    "project_id": "oose-f8ab1",
-    "storage_bucket": "oose-f8ab1.appspot.com"
+    "project_number": "1054608968004",
+    "firebase_url": "https://seprojectdorm.firebaseio.com",
+    "project_id": "seprojectdorm",
+    "storage_bucket": "seprojectdorm.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:91365124549:android:afc95fe143d47018",
+        "mobilesdk_app_id": "1:1054608968004:android:1074aaaa6955bd1c",
         "android_client_info": {
-          "package_name": "com.example.burin"
+          "package_name": "com.example.burin.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "91365124549-cij29ficg6rv5chbgur0b7tm5a5g3pvj.apps.googleusercontent.com",
+          "client_id": "1054608968004-h86v061bul4mvjnojc551e6gnm848102.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAouar6olDK-dUX-0VkR6XWz-2mnMa4sIY"
+          "current_key": "AIzaSyAVB--2u5U-47Ud6ax73g4OggLcP2cz4pM"
         }
       ],
       "services": {
@@ -31,50 +31,6 @@
         "appinvite_service": {
           "status": 1,
           "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:91365124549:android:1074aaaa6955bd1c",
-        "android_client_info": {
-          "package_name": "com.example.burin.myapplication"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "91365124549-efqflm4l6i5at9agsq7qqlkclhdlfpsh.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.burin.myapplication",
-            "certificate_hash": "0ac1c75a113b89ad04044967fab11b9ff1ce4347"
-          }
-        },
-        {
-          "client_id": "91365124549-cij29ficg6rv5chbgur0b7tm5a5g3pvj.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAouar6olDK-dUX-0VkR6XWz-2mnMa4sIY"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "91365124549-cij29ficg6rv5chbgur0b7tm5a5g3pvj.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
         },
         "ads_service": {
           "status": 2
