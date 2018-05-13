@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PictureListActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/ImageView_Back_SelectPicture"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="16dp"
+                        android:src="@drawable/ic_left_arrow" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="เลือกรูปพื้นหลัง"
+                    android:textSize="22dp" />
+
+                <TextView
+                    android:id="@+id/TextView_confirm_SelectPicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    android:text="ยืนยัน"
+                    android:textSize="20dp" />
+            </RelativeLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="0dp">
+
+                <LinearLayout
+                    android:id="@+id/picture_master"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pictureA1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:scaleType="centerCrop" />
+
+                            <RelativeLayout
+                                android:id="@+id/check_pictureA1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:background="#a9000000"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/img_size_50dp"
+                                    android:layout_height="@dimen/img_size_50dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:src="@drawable/ic_checked" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pictureA2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true" />
+
+                            <RelativeLayout
+                                android:id="@+id/check_pictureA2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:background="#a9000000"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/img_size_50dp"
+                                    android:layout_height="@dimen/img_size_50dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:src="@drawable/ic_checked" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pictureA3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true" />
+
+                            <RelativeLayout
+                                android:id="@+id/check_pictureA3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:background="#a9000000"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/img_size_50dp"
+                                    android:layout_height="@dimen/img_size_50dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:src="@drawable/ic_checked" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pictureA4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true" />
+
+                            <RelativeLayout
+                                android:id="@+id/check_pictureA4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:background="#a9000000"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/img_size_50dp"
+                                    android:layout_height="@dimen/img_size_50dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:src="@drawable/ic_checked" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pictureA5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true" />
+
+                            <RelativeLayout
+                                android:id="@+id/check_pictureA5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:background="#a9000000"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/img_size_50dp"
+                                    android:layout_height="@dimen/img_size_50dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:src="@drawable/ic_checked" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pictureA6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true" />
+
+                            <RelativeLayout
+                                android:id="@+id/check_pictureA6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:background="#a9000000"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/img_size_50dp"
+                                    android:layout_height="@dimen/img_size_50dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:src="@drawable/ic_checked" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pictureA7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true" />
+
+                            <RelativeLayout
+                                android:id="@+id/check_pictureA7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:background="#a9000000"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/img_size_50dp"
+                                    android:layout_height="@dimen/img_size_50dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:src="@drawable/ic_checked" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pictureA8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true" />
+
+                            <RelativeLayout
+                                android:id="@+id/check_pictureA8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:background="#a9000000"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/img_size_50dp"
+                                    android:layout_height="@dimen/img_size_50dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:src="@drawable/ic_checked" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pictureA9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true" />
+
+                            <RelativeLayout
+                                android:id="@+id/check_pictureA9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:background="#a9000000"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/img_size_50dp"
+                                    android:layout_height="@dimen/img_size_50dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:src="@drawable/ic_checked" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
