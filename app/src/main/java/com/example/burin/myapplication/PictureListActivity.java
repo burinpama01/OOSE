@@ -175,6 +175,10 @@ public class PictureListActivity extends AppCompatActivity {
                 if (position>=0){
                     Intent intent = (new Intent(PictureListActivity.this,Main.class));
                     setFirebase(name,password,floor,position.toString());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                            Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("NAME",name);
                     startActivity(intent);
                 } else {
                     Toast.makeText(PictureListActivity.this,"กรุณาเลือกรูป",Toast.LENGTH_SHORT).show();

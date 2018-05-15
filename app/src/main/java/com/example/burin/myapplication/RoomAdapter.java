@@ -15,10 +15,14 @@ import java.util.ArrayList;
 public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.Viewholder> {
 
     Context context;
-    //ArrayList<String> data = new ArrayList<>();
+    ArrayList<String> data = new ArrayList<>();
+    String name;
+    String floor;
 
-    public RoomAdapter() {
-
+    public RoomAdapter(ArrayList<String> data, String name, String floor) {
+        this.data = data;
+        this.name = name;
+        this.floor = floor;
     }
 
     @NonNull
@@ -35,10 +39,12 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.Viewholder> {
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
         //holder.textView.setText("ชั้นที่ " + (position+1));
 
+        holder.textView.setText(data.get(position));
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,Detail.class);
+                Intent intent = new Intent(context, Detail.class);
                 context.startActivity(intent);
             }
         });
@@ -46,15 +52,18 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.Viewholder> {
 
     @Override
     public int getItemCount() {
-        return 10;
+        return data.size();
     }
 
     public static class Viewholder extends RecyclerView.ViewHolder {
         CardView cardView;
+        TextView textView;
 
         public Viewholder(View itemView) {
             super(itemView);
-            this.cardView = (CardView)itemView.findViewById(R.id.main_card_list);
+            this.cardView = (CardView) itemView.findViewById(R.id.main_card_list);
+
+            this.textView = (TextView) itemView.findViewById(R.id.TextView_Card_List);
         }
     }
 }

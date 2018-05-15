@@ -38,6 +38,7 @@ public class EditTextDialog {
             public void onClick(DialogInterface dialog, int which) {
             }
         });
+
         AlertDialog abc = dialog.create();
         abc.show();
         return x;
