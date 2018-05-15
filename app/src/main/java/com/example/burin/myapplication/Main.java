@@ -29,7 +29,7 @@ public class Main extends AppCompatActivity {
             }
         });
 
-Log.e("TEST","HELLO");
+//Log.e("TEST","HELLO");
 
     }
 }

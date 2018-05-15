@@ -200,10 +200,10 @@ public class PictureListActivity extends AppCompatActivity {
             Integer total = Integer.parseInt(totalRoom);
             for (Integer j = 1;j<=total;j++){
                 if(j < 10){
-                    String r = "10"+ j.toString();
+                    String r = i+"0"+ j.toString();
                     roomFirebase(currentFloor,r,i.toString());
                 }else {
-                    String r = "1"+ j.toString();
+                    String r = i+ j.toString();
                     roomFirebase(currentFloor,r,i.toString());
                 }
             }
