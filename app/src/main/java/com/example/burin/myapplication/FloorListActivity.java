@@ -41,9 +41,12 @@ public class FloorListActivity extends AppCompatActivity {
         floorRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                floor.clear();
+
                 for (DataSnapshot ds : dataSnapshot.getChildren()){
                     floor.add(ds.getKey());
                 }
+
                 RecyclerFloorList.setAdapter(new FloorListAdapter(name,floor));
             }
 

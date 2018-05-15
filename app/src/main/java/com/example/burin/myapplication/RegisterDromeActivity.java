@@ -39,9 +39,16 @@ public class RegisterDromeActivity extends AppCompatActivity {
         EnterRegisButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebase();
+
 
                 str = editText.getText().toString();
+                //Log.e("adsa",String.valueOf(str.length()));
+                if(str.length() > 0){
+                    firebase();
+                }else {
+                    Toast.makeText(RegisterDromeActivity.this,"กรุณากรอกชื่อหอพัก",Toast.LENGTH_SHORT).show();
+                }
+
                 //Intent intent = new Intent(RegisterDromeActivity.this, Main.class);
                 //startActivity(intent);
             }

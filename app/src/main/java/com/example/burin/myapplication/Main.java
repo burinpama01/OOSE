@@ -57,6 +57,9 @@ public class Main extends AppCompatActivity {
                                 Intent intent = new Intent(Main.this, FloorListActivity.class);
                                 intent.putExtra("NAME",name);
                                 startActivity(intent);
+
+                                username.setText("");
+                                password.setText("");
                             }else {
                                 Toast.makeText(Main.this,"รหัสผ่านไม่ถูกต้อง",Toast.LENGTH_SHORT).show();
                             }

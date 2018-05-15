@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class MainList extends AppCompatActivity {
 
     ArrayList<String> arrs;
+    ArrayList<String> arrss;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,9 @@ public class MainList extends AppCompatActivity {
         final String floor = bundle.getString("FLOOR").toString();
 
         arrs = new ArrayList<>();
+        arrss = new ArrayList<>();
 
-        ArrayList<String> arr = new ArrayList<>();
+        final ArrayList<String> arr = new ArrayList<>();
         for (int i = 0 ;i<10;i++){
             arr.add("");
         }
@@ -49,9 +51,11 @@ public class MainList extends AppCompatActivity {
         roomRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                arrs.clear();
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     arrs.add(ds.getKey());
                 }
+
                 recyclerView.setAdapter(new RoomAdapter(arrs,name,floor));
             }
 
@@ -69,5 +73,6 @@ public class MainList extends AppCompatActivity {
             }
         });
     }
+
 
 }

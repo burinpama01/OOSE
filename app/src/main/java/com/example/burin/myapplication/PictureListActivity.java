@@ -224,13 +224,13 @@ public class PictureListActivity extends AppCompatActivity {
         roomInfo.child("ประเภท").setValue("ไม่ระบุ");
         roomInfo.child("สถานะ").setValue("ว่าง");
 
-        userInfo.child("ชื่อ").setValue(" ");
-        userInfo.child("นามสกุล").setValue(" ");
-        userInfo.child("ชื่อเล่น").setValue(" ");
-        userInfo.child("เพศ").setValue(" ");
-        userInfo.child("อายุ").setValue(" ");
-        userInfo.child("เลขบัตรประชาชน").setValue(" ");
-        userInfo.child("เบอร์โทร").setValue(" ");
+        userInfo.child("ชื่อ").setValue("");
+        userInfo.child("นามสกุล").setValue("");
+        userInfo.child("ชื่อเล่น").setValue("");
+        userInfo.child("เพศ").setValue("");
+        userInfo.child("อายุ").setValue("");
+        userInfo.child("เลขบัตรประชาชน").setValue("");
+        userInfo.child("เบอร์โทร").setValue("");
 
     }
 

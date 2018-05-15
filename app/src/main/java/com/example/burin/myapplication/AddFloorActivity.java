@@ -104,12 +104,20 @@ public class AddFloorActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String text = editText.getText().toString();
+                Integer i = Integer.parseInt(text);
                 if (text.length() > 0) {
-                    if (Integer.valueOf(text) > 0) {
+                    if(i > 99){
+                        Toast.makeText(AddFloorActivity.this,"จำนวนห้องเยอะเกินไป",Toast.LENGTH_SHORT).show();
+                    }
+                    else if (Integer.valueOf(text) > 0) {
                         floor.add(text);
                         RecyclerViewAddfloor.setAdapter(new Adapter(floor));
+                    }else {
+                        Toast.makeText(AddFloorActivity.this,"จำนวนห้องน้อยเกินไป",Toast.LENGTH_SHORT).show();
                     }
 
+                }else {
+                    Toast.makeText(AddFloorActivity.this,"ไม่พบการกรอกข้อมูล",Toast.LENGTH_SHORT).show();
                 }
 
 
