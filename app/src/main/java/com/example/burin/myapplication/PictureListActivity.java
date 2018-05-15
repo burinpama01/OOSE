@@ -175,6 +175,10 @@ public class PictureListActivity extends AppCompatActivity {
                 if (position>=0){
                     Intent intent = (new Intent(PictureListActivity.this,Main.class));
                     setFirebase(name,password,floor,position.toString());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                            Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("NAME",name);
                     startActivity(intent);
                 } else {
                     Toast.makeText(PictureListActivity.this,"กรุณาเลือกรูป",Toast.LENGTH_SHORT).show();
@@ -200,10 +204,10 @@ public class PictureListActivity extends AppCompatActivity {
             Integer total = Integer.parseInt(totalRoom);
             for (Integer j = 1;j<=total;j++){
                 if(j < 10){
-                    String r = "10"+ j.toString();
+                    String r = i+"0"+ j.toString();
                     roomFirebase(currentFloor,r,i.toString());
                 }else {
-                    String r = "1"+ j.toString();
+                    String r = i+ j.toString();
                     roomFirebase(currentFloor,r,i.toString());
                 }
             }
@@ -220,13 +224,13 @@ public class PictureListActivity extends AppCompatActivity {
         roomInfo.child("ประเภท").setValue("ไม่ระบุ");
         roomInfo.child("สถานะ").setValue("ว่าง");
 
-        userInfo.child("ชื่อ").setValue(" ");
-        userInfo.child("นามสกุล").setValue(" ");
-        userInfo.child("ชื่อเล่น").setValue(" ");
-        userInfo.child("เพศ").setValue(" ");
-        userInfo.child("อายุ").setValue(" ");
-        userInfo.child("เลขบัตรประชาชน").setValue(" ");
-        userInfo.child("เบอร์โทร").setValue(" ");
+        userInfo.child("ชื่อ").setValue("");
+        userInfo.child("นามสกุล").setValue("");
+        userInfo.child("ชื่อเล่น").setValue("");
+        userInfo.child("เพศ").setValue("");
+        userInfo.child("อายุ").setValue("");
+        userInfo.child("เลขบัตรประชาชน").setValue("");
+        userInfo.child("เบอร์โทร").setValue("");
 
     }
 

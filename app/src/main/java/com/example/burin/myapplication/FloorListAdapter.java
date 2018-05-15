@@ -10,9 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class FloorListAdapter extends RecyclerView.Adapter<FloorListAdapter.ViewHolder>{
 
     private Context context;
+    private ArrayList<String> data;
+    private String name;
+
+    public FloorListAdapter(String name,ArrayList<String> data) {
+        this.data = data;
+        this.name = name;
+    }
 
     @NonNull
     @Override
@@ -23,12 +32,19 @@ public class FloorListAdapter extends RecyclerView.Adapter<FloorListAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.textViewCardFloor.setText("ชั้นที่ "+(position+1));
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+
+        //holder.textViewCardFloor.setText("ชั้นที่ "+(position+1));
+
+
+        holder.textViewCardFloor.setText(data.get(position));
+
         holder.cardViewFloor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,MainList.class);
+                intent.putExtra("NAME",name);
+                intent.putExtra("FLOOR",data.get(position));
                 context.startActivity(intent);
             }
         });
@@ -37,7 +53,7 @@ public class FloorListAdapter extends RecyclerView.Adapter<FloorListAdapter.View
 
     @Override
     public int getItemCount() {
-        return 100;
+        return data.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
