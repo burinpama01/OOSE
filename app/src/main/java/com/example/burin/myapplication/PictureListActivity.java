@@ -219,18 +219,18 @@ public class PictureListActivity extends AppCompatActivity {
         DatabaseReference roomInfo = room.child("รายละเอียด");
         DatabaseReference userInfo = room.child("ผู้เช่า");
 
-        roomInfo.child("หมายเลขห้อง").setValue(number);
-        roomInfo.child("ชั้น").setValue(floor);
-        roomInfo.child("ประเภท").setValue("ไม่ระบุ");
-        roomInfo.child("สถานะ").setValue("ว่าง");
+        roomInfo.child("roomNumber").setValue(number);
+        roomInfo.child("floor").setValue(floor);
+        roomInfo.child("type").setValue("ไม่ระบุ");
+        roomInfo.child("status").setValue("ว่าง");
 
-        userInfo.child("ชื่อ").setValue("");
-        userInfo.child("นามสกุล").setValue("");
-        userInfo.child("ชื่อเล่น").setValue("");
-        userInfo.child("เพศ").setValue("");
-        userInfo.child("อายุ").setValue("");
-        userInfo.child("เลขบัตรประชาชน").setValue("");
-        userInfo.child("เบอร์โทร").setValue("");
+        userInfo.child("firstName").setValue("");
+        userInfo.child("lastName").setValue("");
+        userInfo.child("nickName").setValue("");
+        userInfo.child("sex").setValue("");
+        userInfo.child("age").setValue("");
+        userInfo.child("idCard").setValue("");
+        userInfo.child("phoneNumber").setValue("");
 
     }
 
