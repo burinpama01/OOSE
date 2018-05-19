@@ -57,7 +57,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Viewholder> {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.showdialogEdit("แก้ไขชั้นที่ "+position + 1,"ใส่จำนวนห้อง",position);
+                activity.showdialogEdit("แก้ไขจำนวนห้องชั้นที่ "+(position + 1),"ใส่จำนวนห้อง",position);
             }
         });
     }
