@@ -44,8 +44,8 @@ public class Main extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         final String name = bundle.getString("NAME").toString();
 
-        TextView title = (TextView)findViewById(R.id.login_title);
-        title.setText(name);
+        TextView titles = (TextView)findViewById(R.id.login_title);
+        titles.setText("หอพัก "+name);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
