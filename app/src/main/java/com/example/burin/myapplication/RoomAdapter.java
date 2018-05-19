@@ -36,7 +36,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.Viewholder> {
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_room, parent, false);
         context = parent.getContext();
 
         return new Viewholder(view);
@@ -46,7 +46,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.Viewholder> {
     public void onBindViewHolder(@NonNull final Viewholder holder, final int position) {
         //holder.textView.setText("ชั้นที่ " + (position+1));
 
-        holder.textView.setText(data.get(position));
+        holder.textView.setText("ห้องหมายเลข "+data.get(position));
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         DatabaseReference roomRef = databaseReference.child("หอพัก").child(name).child("ห้องพัก").child(floor).child(data.get(position));
