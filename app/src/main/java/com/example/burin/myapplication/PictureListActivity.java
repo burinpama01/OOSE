@@ -70,7 +70,7 @@ public class PictureListActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerView_picture);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
-        recyclerView.setAdapter(new ImageAdapter(PictureListActivity.this,new Tools().getImageArray()));
+        recyclerView.setAdapter(new ImageAdapter(PictureListActivity.this,new Tools().getImageArrayProfile()));
 
 
 /*
