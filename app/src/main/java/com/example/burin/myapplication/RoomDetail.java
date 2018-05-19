@@ -1,5 +1,8 @@
 package com.example.burin.myapplication;
 
+import android.os.Bundle;
+import android.widget.TextView;
+
 public class RoomDetail {
 
     private String name;
@@ -46,9 +49,7 @@ public class RoomDetail {
         return idCard;
     }
 
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
-    }
+    public void setIdCard(String idCard) { this.idCard = idCard; }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -57,4 +58,5 @@ public class RoomDetail {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
 }

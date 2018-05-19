@@ -80,8 +80,8 @@ public class Detail extends AppCompatActivity {
         floor = bundle.getString("FLOOR").toString();
         room = bundle.getString("ROOM").toString();
 
-        TextView title = (TextView)findViewById(R.id.detail_title);
-        title.setText("ห้อง "+room);
+        TextView title = (TextView) findViewById(R.id.detail_title);
+        title.setText("ห้อง " + room);
 
 
         spinner = (Spinner) findViewById(R.id.detail_detail_sex_spinnerview);
@@ -150,7 +150,7 @@ public class Detail extends AppCompatActivity {
         name_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showdialog("เพิ่มชื่อ", "กรุณากรอกชื่อ-นามสกุล", tv_name, 0,m_name, InputType.TYPE_CLASS_TEXT);
+                showdialog("เพิ่มชื่อ", "กรุณากรอกชื่อ-นามสกุล", tv_name, 0, m_name, InputType.TYPE_CLASS_TEXT);
             }
         });
 
@@ -158,7 +158,7 @@ public class Detail extends AppCompatActivity {
         nickname_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showdialog("เพิ่มชื่อ", "กรุณากรอกชื่อเล่น", tv_nickname, 3,m_nickname, InputType.TYPE_CLASS_TEXT);
+                showdialog("เพิ่มชื่อ", "กรุณากรอกชื่อเล่น", tv_nickname, 3, m_nickname, InputType.TYPE_CLASS_TEXT);
             }
         });
 
@@ -166,7 +166,7 @@ public class Detail extends AppCompatActivity {
         age_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showdialog("เพิ่มอายุ", "กรุณากรอกอายุ", tv_age, 1,m_age, InputType.TYPE_CLASS_NUMBER);
+                showdialog("เพิ่มอายุ", "กรุณากรอกอายุ", tv_age, 1, m_age, InputType.TYPE_CLASS_NUMBER);
             }
         });
 
@@ -174,7 +174,7 @@ public class Detail extends AppCompatActivity {
         ID_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showdialog("เพิ่มเลขบัตรประชาชน", "กรุณากรอกเลขบัตรประชาชน", tv_ID, 2,m_id, InputType.TYPE_CLASS_NUMBER);
+                showdialog("เพิ่มเลขบัตรประชาชน", "กรุณากรอกเลขบัตรประชาชน", tv_ID, 2, m_id, InputType.TYPE_CLASS_NUMBER);
             }
         });
 
@@ -182,7 +182,7 @@ public class Detail extends AppCompatActivity {
         phonenumber_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showdialog("เพิ่มเบอร์โทร", "กรุณากรอกเบอร์โทร", tv_phonenumber, 4,m_phone, InputType.TYPE_CLASS_PHONE);
+                showdialog("เพิ่มเบอร์โทร", "กรุณากรอกเบอร์โทร", tv_phonenumber, 4, m_phone, InputType.TYPE_CLASS_PHONE);
             }
         });
 
@@ -210,7 +210,7 @@ public class Detail extends AppCompatActivity {
             }
         });
 
-        Button button = (Button)findViewById(R.id.detail_submit_btn);
+        Button button = (Button) findViewById(R.id.detail_submit_btn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -289,7 +289,7 @@ public class Detail extends AppCompatActivity {
         }
     }
 
-    public void showdialog(String Title, String Message, final TextView tv, final int id,String raw, int type) {
+    public void showdialog(String Title, String Message, final TextView tv, final int id, String raw, int type) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
@@ -304,10 +304,9 @@ public class Detail extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String text = editText.getText().toString();
-                if (id != 1){
+                if (id != 1 && id != 2 && id != 4) {
                     tv.setText(text);
                 }
-
 
                 if (id == 0) {
                     m_name = text;
@@ -315,11 +314,21 @@ public class Detail extends AppCompatActivity {
                     m_age = text;
                     tv.setText(text + " ปี");
                 } else if (id == 2) {
-                    m_id = text;
+                    if(text.length() > 13){
+                        new Dialog().alert(Detail.this,"แจ้งเตือน","กรุณากรอกไม่เกิน 13 หลัก");
+                    }else {
+                        m_id = text;
+                        tv.setText(text);
+                    }
                 } else if (id == 3) {
                     m_nickname = text;
                 } else if (id == 4) {
-                    m_phone = text;
+                    if (text.length() > 11){
+                        new Dialog().alert(Detail.this,"แจ้งเตือน","กรุณากรอกไม่เกิน 10 หลัก");
+                    }else {
+                        m_phone = text;
+                        tv.setText(text);
+                    }
                 }
             }
         });
