@@ -57,12 +57,16 @@ public class MainList extends AppCompatActivity {
         roomRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                arrs.clear();
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    arrs.add(ds.getKey());
-                }
+                if(dataSnapshot.getValue() != null){
+                    arrs.clear();
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                        arrs.add(ds.getKey());
+                    }
 
-                recyclerView.setAdapter(new RoomAdapter(arrs,name,floor));
+                    recyclerView.setAdapter(new RoomAdapter(arrs,name,floor));
+                } else {
+                    finish();
+                }
             }
 
             @Override

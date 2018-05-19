@@ -98,28 +98,32 @@ public class Detail extends AppCompatActivity {
         roomRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                RoomDetail roomDetail = dataSnapshot.getValue(RoomDetail.class);
+                if(dataSnapshot.getValue() != null){
+                    RoomDetail roomDetail = dataSnapshot.getValue(RoomDetail.class);
 
-                m_age = roomDetail.getAge();
-                m_id = roomDetail.getIdCard();
-                m_name = roomDetail.getName();
-                m_nickname = roomDetail.getNickName();
-                m_phone = roomDetail.getPhoneNumber();
+                    m_age = roomDetail.getAge();
+                    m_id = roomDetail.getIdCard();
+                    m_name = roomDetail.getName();
+                    m_nickname = roomDetail.getNickName();
+                    m_phone = roomDetail.getPhoneNumber();
 
-                tv_age.setText(m_age + " ปี");
-                tv_ID.setText(m_id);
-                tv_name.setText(m_name);
-                tv_nickname.setText(m_nickname);
-                tv_phonenumber.setText(m_phone);
+                    tv_age.setText(m_age + " ปี");
+                    tv_ID.setText(m_id);
+                    tv_name.setText(m_name);
+                    tv_nickname.setText(m_nickname);
+                    tv_phonenumber.setText(m_phone);
 
-                if (roomDetail.getSex().contentEquals("ชาย")) {
-                    spinner.setSelection(1);
-                } else if (roomDetail.getSex().contentEquals("หญิง")) {
-                    spinner.setSelection(2);
-                } else {
-                    spinner.setSelection(0);
+                    if (roomDetail.getSex().contentEquals("ชาย")) {
+                        spinner.setSelection(1);
+                    } else if (roomDetail.getSex().contentEquals("หญิง")) {
+                        spinner.setSelection(2);
+                    } else {
+                        spinner.setSelection(0);
+                    }
+
+                }else {
+                    finish();
                 }
-
             }
 
             @Override
@@ -132,7 +136,11 @@ public class Detail extends AppCompatActivity {
         dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                tv_password.setText(dataSnapshot.getValue().toString());
+                if(dataSnapshot.getValue()!=null){
+                    tv_password.setText(dataSnapshot.getValue().toString());
+                }else {
+                    finish();
+                }
             }
 
             @Override
@@ -145,13 +153,17 @@ public class Detail extends AppCompatActivity {
         infoRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String status = dataSnapshot.getValue().toString();
-                if (status.contentEquals("ว่าง")) {
-                    checkedRadio(0);
-                } else if (status.contentEquals("เช่าปกติ")) {
-                    checkedRadio(1);
-                } else {
-                    checkedRadio(2);
+                if (dataSnapshot.getValue() != null){
+                    String status = dataSnapshot.getValue().toString();
+                    if (status.contentEquals("ว่าง")) {
+                        checkedRadio(0);
+                    } else if (status.contentEquals("เช่าปกติ")) {
+                        checkedRadio(1);
+                    } else {
+                        checkedRadio(2);
+                    }
+                }else {
+                    finish();
                 }
             }
 
@@ -343,6 +355,8 @@ public class Detail extends AppCompatActivity {
                 } else if (id == 2) {
                     if(text.length() > 13){
                         new Dialog().alert(Detail.this,"แจ้งเตือน","กรุณากรอกไม่เกิน 13 หลัก");
+                    }else if(text.length() < 13){
+                        new Dialog().alert(Detail.this,"แจ้งเตือน","กรุณากรอกให้ครบ 13 หลัก");
                     }else {
                         m_id = text;
                         tv.setText(text);
@@ -350,9 +364,11 @@ public class Detail extends AppCompatActivity {
                 } else if (id == 3) {
                     m_nickname = text;
                 } else if (id == 4) {
-                    if (text.length() > 11){
+                    if (text.length() > 10){
                         new Dialog().alert(Detail.this,"แจ้งเตือน","กรุณากรอกไม่เกิน 10 หลัก");
-                    }else {
+                    }else if(text.length() < 10){
+                        new Dialog().alert(Detail.this,"แจ้งเตือน","กรุณากรอกให้ครบ 10 หลัก");
+                    } else{
                         m_phone = text;
                         tv.setText(text);
                     }
