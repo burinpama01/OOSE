@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,7 +26,7 @@ public class FloorListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.floor_list);
+        setContentView(R.layout.activity_floor_list);
 
         floor = new ArrayList<>();
 
@@ -37,6 +39,14 @@ public class FloorListActivity extends AppCompatActivity {
         final RecyclerView RecyclerFloorList = (RecyclerView)findViewById(R.id.RecyclerView_FloorList);
         RecyclerFloorList.setLayoutManager(new LinearLayoutManager(this));
         RecyclerFloorList.setAdapter(new FloorListAdapter(name,new ArrayList<String>()));
+
+        ImageView back = (ImageView)findViewById(R.id.floor_list_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         floorRef.addValueEventListener(new ValueEventListener() {
             @Override
