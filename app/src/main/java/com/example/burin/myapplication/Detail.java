@@ -323,12 +323,7 @@ public class Detail extends AppCompatActivity {
                 } else if (id == 3) {
                     m_nickname = text;
                 } else if (id == 4) {
-                    if (text.length() > 11){
-                        new Dialog().alert(Detail.this,"แจ้งเตือน","กรุณากรอกไม่เกิน 10 หลัก");
-                    }else {
-                        m_phone = text;
-                        tv.setText(text);
-                    }
+                    m_phone = text;
                 }
             }
         });
