@@ -29,6 +29,22 @@ public class Tools {
         arr.add(R.drawable.moutain);
         arr.add(R.drawable.moutain1);
         arr.add(R.drawable.mountain2);
+        arr.add(R.drawable.ex);
+        return arr;
+    }
+
+    public ArrayList<Integer> getImageArrayProfile(){
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(R.drawable.beach);
+        arr.add(R.drawable.beach1);
+        arr.add(R.drawable.beach2);
+        arr.add(R.drawable.bridge);
+        arr.add(R.drawable.crabs);
+        arr.add(R.drawable.lake);
+        arr.add(R.drawable.moutain);
+        arr.add(R.drawable.moutain1);
+        arr.add(R.drawable.mountain2);
+        arr.add(R.drawable.exprofile);
         return arr;
     }
 
