@@ -48,11 +48,13 @@ public class FloorListAdapter extends RecyclerView.Adapter<FloorListAdapter.View
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                int count = 0;
-                for (DataSnapshot ds : dataSnapshot.getChildren()){
-                    count+=1;
+                if(dataSnapshot.getValue()!= null){
+                    int count = 0;
+                    for (DataSnapshot ds : dataSnapshot.getChildren()){
+                        count+=1;
+                    }
+                    holder.des.setText("จำนวน " + count + " ชั้น");
                 }
-                holder.des.setText("จำนวน " + count + " ชั้น");
             }
 
             @Override
