@@ -1,12 +1,16 @@
 package com.example.burin.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +26,7 @@ import java.util.ArrayList;
 public class FloorListActivity extends AppCompatActivity {
 
     ArrayList<String> floor;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +36,7 @@ public class FloorListActivity extends AppCompatActivity {
         floor = new ArrayList<>();
 
         Bundle bundle = getIntent().getExtras();
-        final String name = bundle.getString("NAME").toString();
+        name = bundle.getString("NAME").toString();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         DatabaseReference floorRef = databaseReference.child("หอพัก").child(name).child("ห้องพัก");
@@ -66,6 +71,50 @@ public class FloorListActivity extends AppCompatActivity {
             }
         });
 
+        ImageView delete = (ImageView)findViewById(R.id.floor_action_delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showdialogDeletes();
+
+            }
+        });
+
+    }
+
+    public void showdialogDeletes() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.dialog_delete, null);
+        dialog.setView(dialogView);
+        TextView textView = (TextView) dialogView.findViewById(R.id.dialog_delete_text);
+        textView.setText("คุณต้องการลบหอพัก " + name);
+        //dialog.setTitle("ลบชั้นที่ " + floor.size());
+        //dialog.setMessage("ต้องการลบชั้น");
+
+        final AlertDialog abc = dialog.create();
+        abc.show();
+
+        CardView cancel = (CardView) dialogView.findViewById(R.id.dialog_delete_cancel);
+        CardView confirm = (CardView) dialogView.findViewById(R.id.dialog_delete_confirm);
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference data = FirebaseDatabase.getInstance().getReference();
+                DatabaseReference ref = data.child("หอพัก").child(name);
+                ref.removeValue();
+                finish();
+                abc.cancel();
+            }
+        });
+
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abc.cancel();
+            }
+        });
     }
 
 }
