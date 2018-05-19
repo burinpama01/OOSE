@@ -56,12 +56,19 @@ public class Main extends AppCompatActivity {
         DatabaseReference infos = parent.child("รายละเอียด");
 
         DatabaseReference dRef = infos.child("รูปพื้นหลัง");
-        dRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        dRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //Integer x = (int)dataSnapshot.getValue();
-                Integer x = Integer.parseInt(dataSnapshot.getValue().toString());
-                setCover(new Tools().getImageArray().get(x));
+                if(dataSnapshot.getValue() == null){
+                    Intent intent = new Intent(Main.this,RegisterDromeActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Integer x = Integer.parseInt(dataSnapshot.getValue().toString());
+                    setCover(new Tools().getImageArray().get(x));
+                }
+
             }
 
             @Override
@@ -85,19 +92,22 @@ public class Main extends AppCompatActivity {
                 if(user.contentEquals("admin")){
                     final DatabaseReference pass = info.child("รหัสผ่าน");
 
-                    pass.addListenerForSingleValueEvent(new ValueEventListener() {
+                    pass.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            if(dataSnapshot.getValue().toString().contentEquals(passs)){
-                                Intent intent = new Intent(Main.this, FloorListActivity.class);
-                                intent.putExtra("NAME",name);
-                                startActivity(intent);
+                            if (dataSnapshot.getValue()!=null){
+                                if(dataSnapshot.getValue().toString().contentEquals(passs)){
+                                    Intent intent = new Intent(Main.this, FloorListActivity.class);
+                                    intent.putExtra("NAME",name);
+                                    startActivity(intent);
 
-                                username.setText("");
-                                password.setText("");
-                            }else {
-                                Toast.makeText(Main.this,"รหัสผ่านไม่ถูกต้อง",Toast.LENGTH_SHORT).show();
+                                    username.setText("");
+                                    password.setText("");
+                                }else {
+                                    Toast.makeText(Main.this,"รหัสผ่านไม่ถูกต้อง",Toast.LENGTH_SHORT).show();
+                                }
                             }
+
                         }
 
                         @Override

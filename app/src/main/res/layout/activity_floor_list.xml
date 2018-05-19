@@ -57,12 +57,13 @@
                     android:layout_marginRight="10dp"
                     />
                 <ImageView
+                    android:id="@+id/floor_action_delete"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_settings"
+                    android:src="@drawable/ic_garbage"
                     android:tint="@color/colorWhite" />
 
             </LinearLayout>

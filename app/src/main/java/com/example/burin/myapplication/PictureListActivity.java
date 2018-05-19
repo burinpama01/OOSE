@@ -235,6 +235,7 @@ public class PictureListActivity extends AppCompatActivity {
         roomInfo.child("floor").setValue(floor);
         roomInfo.child("type").setValue("ไม่ระบุ");
         roomInfo.child("status").setValue("ว่าง");
+        roomInfo.child("password").setValue("");
 
         userInfo.child("firstName").setValue("");
         userInfo.child("lastName").setValue("");

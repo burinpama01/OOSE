@@ -26,6 +26,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.Viewholder
 
         if(data.size() == 0 && ready){
             activity.empty.setVisibility(View.VISIBLE);
+            activity.pro.setVisibility(View.GONE);
         }
         else if(data.size()>0){
             activity.empty.setVisibility(View.GONE);
