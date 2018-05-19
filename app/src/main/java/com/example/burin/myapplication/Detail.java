@@ -55,6 +55,7 @@ public class Detail extends AppCompatActivity {
     String m_age = "";
     String m_id = "";
     String m_phone = "";
+    String m_password = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,8 @@ public class Detail extends AppCompatActivity {
         final TextView tv_age = (TextView) findViewById(R.id.detail_detail_age_textview);
         final TextView tv_ID = (TextView) findViewById(R.id.detail_detail_ID_textview);
         final TextView tv_phonenumber = (TextView) findViewById(R.id.detail_detail_phonenumber_textview);
+        final TextView tv_password = (TextView)findViewById(R.id.detail_detail_password_textview);
+        tv_password.setVisibility(View.VISIBLE);
 
         Bundle bundle = getIntent().getExtras();
         name = bundle.getString("NAME").toString();
@@ -117,6 +120,19 @@ public class Detail extends AppCompatActivity {
                     spinner.setSelection(0);
                 }
 
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        DatabaseReference dataRef = databaseReference.child("หอพัก").child(name).child("ห้องพัก").child(floor).child(room).child("รายละเอียด").child("password");
+        dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                tv_password.setText(dataSnapshot.getValue().toString());
             }
 
             @Override
@@ -183,6 +199,14 @@ public class Detail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showdialog("เพิ่มเบอร์โทร", "กรุณากรอกเบอร์โทร", tv_phonenumber, 4,m_phone, InputType.TYPE_CLASS_PHONE);
+            }
+        });
+
+        RelativeLayout password_layout = (RelativeLayout)findViewById(R.id.detail_detail_password_layout);
+        password_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showdialog("ตั้งรหัสผ่าน","กรุณากรอกรหัสผ่าน",tv_password,5,m_password,InputType.TYPE_TEXT_VARIATION_PASSWORD);
             }
         });
 
@@ -254,6 +278,8 @@ public class Detail extends AppCompatActivity {
         DatabaseReference infoRef = roomRef.child("รายละเอียด").child("status");
         DatabaseReference userRef = roomRef.child("ผู้เช่า");
 
+        DatabaseReference a = roomRef.child("รายละเอียด").child("password");
+
         RoomDetail roomDetail = new RoomDetail();
         roomDetail.setAge(m_age);
         roomDetail.setName(m_name);
@@ -265,6 +291,7 @@ public class Detail extends AppCompatActivity {
         userRef.setValue(roomDetail);
 
         infoRef.setValue(getStatus());
+        a.setValue(m_password);
     }
 
     private String getStatus() {
@@ -320,6 +347,8 @@ public class Detail extends AppCompatActivity {
                     m_nickname = text;
                 } else if (id == 4) {
                     m_phone = text;
+                } else if (id == 5){
+                    m_password = text;
                 }
             }
         });

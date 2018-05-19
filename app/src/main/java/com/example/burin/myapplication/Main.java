@@ -83,10 +83,11 @@ public class Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String user = username.getText().toString();
+                final String user = username.getText().toString();
                 final String passs = password.getText().toString();
 
                 DatabaseReference info = parent.child("รายละเอียด");
+
 
 
                 if(user.contentEquals("admin")){
@@ -115,8 +116,40 @@ public class Main extends AppCompatActivity {
                             Toast.makeText(Main.this,"ระบบผืดพลาด",Toast.LENGTH_SHORT).show();
                         }
                     });
-                }else {
-                    Toast.makeText(Main.this,"ไม่พบผู้ใช้",Toast.LENGTH_SHORT).show();
+                } else {
+
+                    if(user.length() >= 3){
+                        String x = user.substring(0,user.length()-2);
+                        DatabaseReference dataRef = parent.child("ห้องพัก").child("ชั้นที่ "+x).child(user).child("รายละเอียด").child("password");
+                        dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                if(dataSnapshot.getValue()!=null){
+                                    String pa = dataSnapshot.getValue().toString();
+                                    if(passs.length() == 0){
+                                        Toast.makeText(Main.this,"กรุณาพิมพ์รหัสผ่าน",Toast.LENGTH_SHORT).show();
+                                    }else if(passs.contentEquals(pa)){
+                                        Intent intent = new Intent(Main.this,DetailUserActivity.class);
+                                        startActivity(intent);
+                                    }else {
+                                        Toast.makeText(Main.this,"รหัสผ่านไม่ถูกต้อง",Toast.LENGTH_SHORT).show();
+                                    }
+                                } else {
+                                    Toast.makeText(Main.this,"ไม่พบผู้ใช้",Toast.LENGTH_SHORT).show();
+                                }
+
+
+
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                    }else {
+                        Toast.makeText(Main.this,"ไม่พบผู้ใช้",Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
