@@ -15,22 +15,24 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/colorGray900">
+
             <TextView
                 android:id="@+id/detail_title"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:text="ห้อง 101"
                 android:textSize="25dp" />
+
             <TextView
-                android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
                 android:text="ล้างข้อมูล"
-                android:textSize="16dp"/>
+                android:textSize="16dp" />
 
             <ImageView
                 android:id="@+id/back_imageView_detail"
@@ -44,265 +46,314 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-            <RelativeLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-                <LinearLayout
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/radioButton_detail_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="ว่าง" />
-
-                    <RadioButton
-                        android:id="@+id/radioButton_detail_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:text="เช่าปกติ"/>
-
-                    <RadioButton
-                        android:id="@+id/radioButton_detail_3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ชำรุด"/>
-
-                </LinearLayout>
-            </RelativeLayout>
-        </LinearLayout>
+        android:layout_marginTop="50dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorGray">
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="16dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioButton_detail_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="16dp"
+                            android:text="ว่าง" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton_detail_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="16dp"
+                            android:text="เช่าปกติ" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton_detail_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ชำรุด" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="รายละเอียด"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="16dp"/>
+                android:background="@color/colorGray">
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorWhite">
-                    
-                    <RelativeLayout
-                        android:id="@+id/detail_detail_name_layout"
+                    android:orientation="vertical">
+
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="60dp">
-                        <TextView
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="รายละเอียด"
+                        android:textSize="20dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/detail_detail_name_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="ชื่อ - นามสกุล"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/detail_detail_name_textview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:textSize="20dp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
                             android:layout_marginLeft="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ชื่อ - นามสกุล"
-                            android:textSize="20dp"/>
+                            android:background="#595959" />
 
-                        <TextView
-                            android:id="@+id/detail_detail_name_textview"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/detail_detail_nickname_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#595959"
-                        android:layout_marginLeft="16dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="ชื่อเล่น"
+                                android:textSize="20dp" />
 
-                    <RelativeLayout
-                        android:id="@+id/detail_detail_nickname_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp">
-                        <TextView
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
+                            <TextView
+                                android:id="@+id/detail_detail_nickname_textview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:textSize="20dp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
                             android:layout_marginLeft="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ชื่อเล่น"
-                            android:textSize="20dp"/>
-                        <TextView
-                            android:id="@+id/detail_detail_nickname_textview"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
+                            android:background="#595959" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#595959"
-                        android:layout_marginLeft="16dp"/>
+                        <RelativeLayout
+                            android:id="@+id/detail_detail_sex_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp">
 
-                    <RelativeLayout
-                        android:id="@+id/detail_detail_sex_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"><TextView
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="เพศ"
+                                android:textSize="20dp" />
+
+                            <Spinner
+                                android:id="@+id/detail_detail_sex_spinnerview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"></Spinner>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
                             android:layout_marginLeft="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="เพศ"
-                            android:textSize="20dp"/>
-                        <Spinner
-                            android:id="@+id/detail_detail_sex_spinnerview"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="16dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true" >
-                        </Spinner>
-                    </RelativeLayout>
+                            android:background="#595959" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#595959"
-                        android:layout_marginLeft="16dp"/>
+                        <RelativeLayout
+                            android:id="@+id/detail_detail_age_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp">
 
-                    <RelativeLayout
-                        android:id="@+id/detail_detail_age_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp">
-                        <TextView
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="อายุ"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/detail_detail_age_textview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:textSize="20dp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
                             android:layout_marginLeft="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="อายุ"
-                            android:textSize="20dp"/>
-                        <TextView
-                            android:id="@+id/detail_detail_age_textview"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
+                            android:background="#595959" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#595959"
-                        android:layout_marginLeft="16dp"/>
+                        <RelativeLayout
+                            android:id="@+id/detail_detail_ID_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp">
 
-                    <RelativeLayout
-                        android:id="@+id/detail_detail_ID_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp">
-                        <TextView
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="เลขบัตรประชาชน"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/detail_detail_ID_textview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:textSize="20dp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
                             android:layout_marginLeft="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="เลขบัตรประชาชน"
-                            android:textSize="18dp"/>
-                        <TextView
-                            android:id="@+id/detail_detail_ID_textview"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
+                            android:background="#595959" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#595959"
-                        android:layout_marginLeft="16dp"/>
+                        <RelativeLayout
+                            android:id="@+id/detail_detail_phonenumber_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp">
 
-                    <RelativeLayout
-                        android:id="@+id/detail_detail_phonenumber_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp">
-                        <TextView
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="เบอร์โทร"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/detail_detail_phonenumber_textview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:textSize="20dp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
                             android:layout_marginLeft="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="เบอร์โทร"
-                            android:textSize="20dp"/>
-                        <TextView
-                            android:id="@+id/detail_detail_phonenumber_textview"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20dp"/>
-                    </RelativeLayout>
+                            android:background="#595959" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#595959"
-                        android:layout_marginLeft="16dp"/>
+                        <RelativeLayout
+                            android:id="@+id/detail_detail_password_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp">
-                        <Button
-                            android:id="@+id/detail_submit_btn"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="บันทึก"
-                            android:textSize="25dp"/>
-                    </RelativeLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="รหัสผ่าน"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/detail_detail_password_textview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:textSize="20dp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="16dp"
+                            android:background="#595959" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp">
+
+                            <Button
+                                android:id="@+id/detail_submit_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:text="บันทึก"
+                                android:textSize="25dp" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
-
             </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
 
 </android.support.design.widget.CoordinatorLayout>

@@ -30,6 +30,13 @@ public class Tools {
         arr.add(R.drawable.moutain1);
         arr.add(R.drawable.mountain2);
         arr.add(R.drawable.ex);
+        arr.add(R.drawable.sea);
+        arr.add(R.drawable.sea1);
+        arr.add(R.drawable.sakuraroadview);
+        arr.add(R.drawable.beach3);
+        arr.add(R.drawable.bridgebeach);
+        arr.add(R.drawable.view);
+        arr.add(R.drawable.waterfall);
         return arr;
     }
 
@@ -45,6 +52,13 @@ public class Tools {
         arr.add(R.drawable.moutain1);
         arr.add(R.drawable.mountain2);
         arr.add(R.drawable.exprofile);
+        arr.add(R.drawable.sea);
+        arr.add(R.drawable.sea1);
+        arr.add(R.drawable.sakuraroadview);
+        arr.add(R.drawable.beach3);
+        arr.add(R.drawable.bridgebeach);
+        arr.add(R.drawable.view);
+        arr.add(R.drawable.waterfall);
         return arr;
     }
 
