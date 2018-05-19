@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorGray900"
+    tools:context=".RegisterDromeActivity">
+
+
+
+
+    <RelativeLayout
+        android:background="#EDEDED"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:background="@color/colorWhite"
+            android:layout_marginRight="0dp"
+            android:orientation="vertical"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/sukhumvit_bold"
+                    android:textSize="40dp"
+                    android:text="ระบบหอพัก"
+                    android:textStyle="normal"
+                    android:textColor="#0060bf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="80dp"
+                    android:fontFamily="@font/sukhumvit_light"
+                    android:textSize="20dp"
+                    android:text="เลือกชื่อหอพักที่ต้องการเข้าสู่ระบบ"
+                    android:textStyle="normal"
+                    android:textColor="#848484"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="130dp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    app:cardElevation="0dp"
+                    android:layout_height="46dp"
+                    app:cardBackgroundColor="#EDEDED">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_action_seach"
+                            android:tint="#616161"
+                            android:layout_marginLeft="20dp"
+                            />
+
+                        <EditText
+                            android:id="@+id/edittext_code_dorm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/sukhumvit_light"
+                            android:gravity="center_vertical"
+                            android:hint="ค้นหา"
+                            android:paddingLeft="60dp"
+                            android:paddingRight="20dp"
+                            android:singleLine="true"
+                            android:textColorHint="#79000000"
+                            android:textSize="20dp" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#d2d2d2"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:paddingTop="50dp"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/Button_Enter_Register_Drome"
+                android:layout_gravity="center"
+                android:layout_marginTop="26dp"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="25dp"
+                app:cardBackgroundColor="#0060bf"
+                >
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sukhumvit_bold"
+                    android:text="ค้นหา"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="195dp"
+                android:clipToPadding="false"
+                android:paddingTop="20dp"
+                android:paddingBottom="70dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/search_recyclerview"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                >
+
+            </android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:id="@+id/add_floor_progress"
+                android:paddingTop="30dp"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ProgressBar
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="0dp"
+                    android:fontFamily="@font/sukhumvit_semibold"
+                    android:text="กำลังโหลด"
+                    android:paddingTop="10dp"
+                    android:textColor="#0060bf"
+                    android:visibility="visible"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/add_floor_empty"
+                android:paddingTop="30dp"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="0dp"
+                    android:fontFamily="@font/sukhumvit_semibold"
+                    android:text="ไม่พบหอพัก"
+                    android:paddingTop="10dp"
+                    android:textColor="#0060bf"
+                    android:visibility="visible"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/TextView_Register_Drome"
+            android:layout_alignParentBottom="true"
+            android:background="#00000000"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:cardBackgroundColor="#0060bf"
+                app:cardElevation="0dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                app:cardCornerRadius="25dp"
+                >
+
+
+            </android.support.v7.widget.CardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="#0060bf"
+                android:layout_alignParentBottom="true"
+                />
+
+            <TextView
+                android:paddingTop="6dp"
+                android:fontFamily="@font/sukhumvit_semibold"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:textSize="20dp"
+                android:text="ลงทะเบียนหอพัก"
+                android:textStyle="normal"
+                android:textColor="#dcffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

@@ -10,12 +10,15 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -32,6 +35,9 @@ public class MainList extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         final String name = bundle.getString("NAME").toString();
         final String floor = bundle.getString("FLOOR").toString();
+
+        TextView title = (TextView)findViewById(R.id.main_list_title);
+        title.setText(floor);
 
         arrs = new ArrayList<>();
         arrss = new ArrayList<>();

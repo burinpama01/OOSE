@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Display;
@@ -38,12 +40,14 @@ public class PictureListActivity extends AppCompatActivity {
     private RelativeLayout l8;
     private RelativeLayout l9;
 
-    private Integer position = -1;
+    public Integer position = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.picture_list);
+        setContentView(R.layout.activity_picture);
+
+        //new Dialog().pro(PictureListActivity.this);
 
         Bundle bundle = getIntent().getExtras();
 
@@ -52,7 +56,7 @@ public class PictureListActivity extends AppCompatActivity {
         final String name = bundle.getString("NAME");
         final String password = bundle.getString("PASSWORD");
 
-        ImageView ImageViewBackSelectPicture = (ImageView)findViewById(R.id.ImageView_Back_SelectPicture);
+        ImageView ImageViewBackSelectPicture = (ImageView)findViewById(R.id.picture_back_btn);
         ImageViewBackSelectPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +68,12 @@ public class PictureListActivity extends AppCompatActivity {
         point = new Point();
         display.getSize(point);
 
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerView_picture);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        recyclerView.setAdapter(new ImageAdapter(PictureListActivity.this,new Tools().getImageArray()));
+
+
+/*
         ImageView IM1 = (ImageView) findViewById(R.id.pictureA1);
         setImageSize(IM1, R.drawable.beach);
         ImageView IM2 = (ImageView) findViewById(R.id.pictureA2);
@@ -168,6 +178,8 @@ public class PictureListActivity extends AppCompatActivity {
             }
         });
 
+
+ */
         TextView TextViewConfirmSelectPicture = (TextView)findViewById(R.id.TextView_confirm_SelectPicture);
         TextViewConfirmSelectPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -219,18 +231,18 @@ public class PictureListActivity extends AppCompatActivity {
         DatabaseReference roomInfo = room.child("รายละเอียด");
         DatabaseReference userInfo = room.child("ผู้เช่า");
 
-        roomInfo.child("หมายเลขห้อง").setValue(number);
-        roomInfo.child("ชั้น").setValue(floor);
-        roomInfo.child("ประเภท").setValue("ไม่ระบุ");
-        roomInfo.child("สถานะ").setValue("ว่าง");
+        roomInfo.child("roomNumber").setValue(number);
+        roomInfo.child("floor").setValue(floor);
+        roomInfo.child("type").setValue("ไม่ระบุ");
+        roomInfo.child("status").setValue("ว่าง");
 
-        userInfo.child("ชื่อ").setValue("");
-        userInfo.child("นามสกุล").setValue("");
-        userInfo.child("ชื่อเล่น").setValue("");
-        userInfo.child("เพศ").setValue("");
-        userInfo.child("อายุ").setValue("");
-        userInfo.child("เลขบัตรประชาชน").setValue("");
-        userInfo.child("เบอร์โทร").setValue("");
+        userInfo.child("firstName").setValue("");
+        userInfo.child("lastName").setValue("");
+        userInfo.child("nickName").setValue("");
+        userInfo.child("sex").setValue("");
+        userInfo.child("age").setValue("");
+        userInfo.child("idCard").setValue("");
+        userInfo.child("phoneNumber").setValue("");
 
     }
 
