@@ -27,7 +27,7 @@
             android:name=".RegisterDromeActivity"
             android:label="@string/title_activity_register_drome"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/Search_Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,11 +37,11 @@
         <activity
             android:name=".RegisterAdminActivity"
             android:label="@string/title_activity_register_admin"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/Register_Theme" />
         <activity
             android:name=".AddFloorActivity"
             android:label="@string/title_activity_add_floor"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/Register_Theme" />
         <activity
             android:name=".PictureListActivity"
             android:label="@string/title_activity_picture_list"
@@ -50,6 +50,10 @@
             android:name=".FloorListActivity"
             android:label="@string/title_activity_floor_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

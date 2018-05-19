@@ -45,6 +45,8 @@ public class PictureListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.picture_list);
 
+        //new Dialog().pro(PictureListActivity.this);
+
         Bundle bundle = getIntent().getExtras();
 
 
