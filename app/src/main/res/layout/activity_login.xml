@@ -30,9 +30,11 @@
             android:background="#78000000">
 
             <android.support.v7.widget.CardView
-                android:layout_centerVertical="true"
-                android:layout_margin="20dp"
-                app:cardCornerRadius="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_centerVertical="false"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -42,18 +44,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingBottom="40dp"
+                    android:paddingBottom="30dp"
                     android:paddingTop="30dp">
 
 
                     <TextView
+                        android:id="@+id/login_title"
                         android:layout_marginLeft="20dp"
                         android:text="ชื่อหอพัก"
                         android:textSize="40dp"
-                        android:fontFamily="@font/sukhumvit_light"
+                        android:fontFamily="@font/sukhumvit_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="60dp"
+                        android:layout_marginBottom="10dp"
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#b4b4b4"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="30dp"
                         />
 
                     <android.support.v7.widget.CardView
@@ -106,10 +117,10 @@
 
                     <android.support.v7.widget.CardView
                         android:id="@+id/button_login"                    android:layout_gravity="center"
-                        android:layout_marginTop="36dp"
+                        android:layout_marginTop="46dp"
                         android:layout_width="180dp"
                         android:layout_height="50dp"
-                        app:cardCornerRadius="10dp"
+                        app:cardCornerRadius="25dp"
                         app:cardBackgroundColor="#0060bf"
                         >
                         <TextView
@@ -144,7 +155,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="0dp"
         android:fontFamily="@font/sukhumvit_semibold"
-        android:text="ติดต่อเจ้าของหอ"
+        android:text="ติดต่อผู้ดูแล"
         android:layout_marginBottom="16dp"
         android:textColor="@color/colorWhite"
         android:textSize="20dp" />

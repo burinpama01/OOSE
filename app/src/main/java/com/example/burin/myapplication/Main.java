@@ -11,10 +11,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -37,8 +39,16 @@ public class Main extends AppCompatActivity {
         final EditText username = (EditText) findViewById(R.id.username);
         final EditText password = (EditText) findViewById(R.id.password);
 
+
+
         Bundle bundle = getIntent().getExtras();
         final String name = bundle.getString("NAME").toString();
+
+        TextView title = (TextView)findViewById(R.id.login_title);
+        title.setText(name);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference parent = databaseReference.child("หอพัก").child(name);
