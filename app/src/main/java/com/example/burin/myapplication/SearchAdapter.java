@@ -20,11 +20,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.Viewholder
     private Context context;
     private RegisterDromeActivity activity;
 
-    public SearchAdapter(ArrayList<String> data, RegisterDromeActivity activity) {
+    public SearchAdapter(ArrayList<String> data, RegisterDromeActivity activity,Boolean ready) {
         this.data = data;
         this.activity = activity;
 
-        if(data.size()>0){
+        if(data.size() == 0 && ready){
+            activity.empty.setVisibility(View.VISIBLE);
+        }
+        else if(data.size()>0){
+            activity.empty.setVisibility(View.GONE);
             activity.pro.setVisibility(View.GONE);
         }
     }

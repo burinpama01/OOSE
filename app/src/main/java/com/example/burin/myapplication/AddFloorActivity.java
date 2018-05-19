@@ -192,6 +192,63 @@ public class AddFloorActivity extends AppCompatActivity {
         });
     }
 
+    public void showdialogEdit(String Title, String Message, final Integer position) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.dialog_add, null);
+        dialog.setView(dialogView);
+        //dialog.setTitle(Title);
+        //dialog.setMessage(Message);
+        final EditText editText = (EditText) dialogView.findViewById(R.id.custom_dialog_edittext);
+        editText.requestFocus();
+        editText.setText(floor.get(position));
+
+        editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        CardView cancel = (CardView) dialogView.findViewById(R.id.dialog_add_cancel);
+        CardView confirm = (CardView) dialogView.findViewById(R.id.dialog_add_confirm);
+        TextView textView = (TextView) dialogView.findViewById(R.id.dialog_add_text);
+        textView.setText(Title);
+        editText.setHint(Message);
+
+        final AlertDialog abc = dialog.create();
+        abc.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+
+        abc.show();
+
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = editText.getText().toString();
+                Integer i = Integer.parseInt(text);
+                if (text.length() > 0) {
+                    if (i > 99) {
+                        Toast.makeText(AddFloorActivity.this, "จำนวนห้องเยอะเกินไป", Toast.LENGTH_SHORT).show();
+                    } else if (Integer.valueOf(text) > 0) {
+                        //floor.add(text);
+                        //RecyclerViewAddfloor.setAdapter(new Adapter(floor,AddFloorActivity.this));
+                        floor.set(position,text);
+                        RecyclerViewAddfloor.setAdapter(new Adapter(floor,AddFloorActivity.this));
+                    } else {
+                        Toast.makeText(AddFloorActivity.this, "จำนวนห้องน้อยเกินไป", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else {
+                    Toast.makeText(AddFloorActivity.this, "ไม่พบการกรอกข้อมูล", Toast.LENGTH_SHORT).show();
+                }
+                abc.cancel();
+            }
+        });
+
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abc.cancel();
+            }
+        });
+    }
+
     public void showdialogDelete() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();

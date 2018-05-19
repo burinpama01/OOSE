@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -22,10 +25,14 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Main extends AppCompatActivity {
 
+    ImageView cover;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_login);
+
+        cover = (ImageView)findViewById(R.id.login_cover);
 
         final EditText username = (EditText) findViewById(R.id.username);
         final EditText password = (EditText) findViewById(R.id.password);
@@ -36,7 +43,24 @@ public class Main extends AppCompatActivity {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference parent = databaseReference.child("หอพัก").child(name);
 
-        Button loginButton = (Button) findViewById(R.id.button_login);
+        DatabaseReference infos = parent.child("รายละเอียด");
+
+        DatabaseReference dRef = infos.child("รูปพื้นหลัง");
+        dRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //Integer x = (int)dataSnapshot.getValue();
+                Integer x = Integer.parseInt(dataSnapshot.getValue().toString());
+                setCover(new Tools().getImageArray().get(x));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        CardView loginButton = (CardView) findViewById(R.id.button_login);
         loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -46,6 +70,7 @@ public class Main extends AppCompatActivity {
                 final String passs = password.getText().toString();
 
                 DatabaseReference info = parent.child("รายละเอียด");
+
 
                 if(user.contentEquals("admin")){
                     final DatabaseReference pass = info.child("รหัสผ่าน");
@@ -77,9 +102,24 @@ public class Main extends AppCompatActivity {
             }
         });
 
+        RelativeLayout back = (RelativeLayout)findViewById(R.id.login_back_btn);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Main.this, RegisterDromeActivity.class);
+                startActivity(intent);
+
+                finish();
+            }
+        });
+
 
 //Log.e("TEST","HELLO");
 
+    }
+
+    private void setCover(int res){
+        cover.setImageDrawable(getResources().getDrawable(res));
     }
 
     @Override

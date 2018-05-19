@@ -3,13 +3,18 @@ package com.example.burin.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -45,9 +50,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Viewholder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull Viewholder holder, final int position) {
         holder.textView.setText("ชั้นที่ " + (position + 1));
         holder.des.setText("จำนวน " + activity.floor.get(position) + " ชั้น");
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.showdialogEdit("แก้ไขชั้นที่ "+position + 1,"ใส่จำนวนห้อง",position);
+            }
+        });
     }
 
     @Override
@@ -69,4 +81,5 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Viewholder> {
 
         }
     }
+
 }

@@ -40,6 +40,7 @@ public class RegisterDromeActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
     LinearLayout pro;
+    LinearLayout empty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class RegisterDromeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         pro = (LinearLayout)findViewById(R.id.add_floor_progress);
+        empty = (LinearLayout)findViewById(R.id.add_floor_empty);
 
         arr = new ArrayList<>();
         editText = (EditText) findViewById(R.id.edittext_code_dorm);
@@ -56,7 +58,7 @@ public class RegisterDromeActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.search_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new SearchAdapter(new ArrayList<String>(),RegisterDromeActivity.this));
+        recyclerView.setAdapter(new SearchAdapter(new ArrayList<String>(),RegisterDromeActivity.this,false));
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         DatabaseReference dorm = databaseReference.child("หอพัก");
@@ -69,7 +71,7 @@ public class RegisterDromeActivity extends AppCompatActivity {
                     total.add(ds.getKey());
                 }
 
-                recyclerView.setAdapter(new SearchAdapter(total,RegisterDromeActivity.this));
+                recyclerView.setAdapter(new SearchAdapter(total,RegisterDromeActivity.this,true));
             }
 
             @Override
@@ -99,7 +101,7 @@ public class RegisterDromeActivity extends AppCompatActivity {
                     }
                 }
 
-                recyclerView.setAdapter(new SearchAdapter(ss,RegisterDromeActivity.this));
+                recyclerView.setAdapter(new SearchAdapter(ss,RegisterDromeActivity.this,true));
             }
 
             @Override

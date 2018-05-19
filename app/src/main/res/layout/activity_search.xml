@@ -58,7 +58,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="130dp"
                     android:layout_gravity="center"
-                    app:cardCornerRadius="23dp"
+                    app:cardCornerRadius="12dp"
                     android:layout_width="match_parent"
                     app:cardElevation="0dp"
                     android:layout_height="46dp"
@@ -179,7 +179,28 @@
                     android:paddingTop="10dp"
                     android:textColor="#0060bf"
                     android:visibility="visible"
-                    android:id="@+id/add_floor_empty"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/add_floor_empty"
+                android:paddingTop="30dp"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="0dp"
+                    android:fontFamily="@font/sukhumvit_semibold"
+                    android:text="ไม่พบหอพัก"
+                    android:paddingTop="10dp"
+                    android:textColor="#0060bf"
+                    android:visibility="visible"
                     android:textSize="18dp" />
             </LinearLayout>
 
@@ -222,7 +243,7 @@
                 android:textSize="20dp"
                 android:text="ลงทะเบียนหอพัก"
                 android:textStyle="normal"
-                android:textColor="#b4ffffff"
+                android:textColor="#dcffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
