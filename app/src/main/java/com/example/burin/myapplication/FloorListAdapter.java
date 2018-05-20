@@ -53,7 +53,7 @@ public class FloorListAdapter extends RecyclerView.Adapter<FloorListAdapter.View
                     for (DataSnapshot ds : dataSnapshot.getChildren()){
                         count+=1;
                     }
-                    holder.des.setText("จำนวน " + count + " ชั้น");
+                    holder.des.setText("จำนวน " + count + " ห้อง");
                 }
             }
 
