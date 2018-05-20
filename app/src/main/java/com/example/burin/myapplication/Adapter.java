@@ -52,7 +52,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Viewholder> {
     @Override
     public void onBindViewHolder(@NonNull Viewholder holder, final int position) {
         holder.textView.setText("ชั้นที่ " + (position + 1));
-        holder.des.setText("จำนวน " + activity.floor.get(position) + " ชั้น");
+        holder.des.setText("จำนวน " + activity.floor.get(position) + " ห้อง");
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
